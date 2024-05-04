@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+        }
+        .header {
+            background-color: #ff69b4;
+            color: #000; /* Changed color to black */
+            padding: 10px;
+            text-align: center;
+        }
+        .nav {
+            margin: 15px 0;
+            text-align: center;
+        }
+        .nav a {
+            margin: 0 10px;
+            color: #333;
+            text-decoration: none;
+        }
+        .product {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        .product div {
+            margin: 15px;
+            text-align: center;
+        }
+        .footer {
+            background-color: #ff69b4;
+            color: #000; /* Changed color to black */
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        .carousel {
+            display: none;
+        }
+        .carousel.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Plushie Paradise</h1>
+    </div>
+    <div class="nav">
+        <a href="#home">Home</a>
+        <a href="#product">Product</a>
+    </div>
+    <div class="product" id="product">
+        <div class="carousel active">
+            <img src="plushie1.jpg" alt="Plushie 1" width="200">
+            <h2>Plushie 1</h2>
+            <p>Soft and cuddly plushie.</p>
+        </div>
+        <div class="carousel">
+            <img src="plushie2.jpg" alt="Plushie 2" width="200">
+            <h2>Plushie 2</h2>
+            <p>Adorable and huggable plushie.</p>
+        </div>
+    </div>
+    <div class="footer">
+        <p>&copy; 2022 Plushie Paradise</p>
+    </div>
+    <script>
+        var index = 0;
+        var carousels = document.getElementsByClassName('carousel');
+
+        function carousel() {
+            for (var i = 0; i < carousels.length; i++) {
+                carousels[i].style.display = "none";
+            }
+            index++;
+            if (index > carousels.length) {index = 1}
+            carousels[index-1].style.display = "block";
+            setTimeout(carousel, 2000); // Change image every 2 seconds
+        }
+
+        carousel();
+    </script>
+</body>
+</html>
